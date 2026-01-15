@@ -32,14 +32,9 @@
             from { opacity: 0; transform: scale(0.9); }
             to { opacity: 1; transform: scale(1); }
         }
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-        }
         .animate-fadeInUp { animation: fadeInUp 0.8s ease-out forwards; }
         .animate-fadeIn { animation: fadeIn 1s ease-out forwards; }
         .animate-scaleIn { animation: scaleIn 0.6s ease-out forwards; }
-        .animate-float { animation: float 3s ease-in-out infinite; }
         .stagger-1 { animation-delay: 0.1s; opacity: 0; }
         .stagger-2 { animation-delay: 0.2s; opacity: 0; }
         .stagger-3 { animation-delay: 0.3s; opacity: 0; }
@@ -67,22 +62,25 @@
         </div>
     </nav>
 
-    <div class="pt-32 pb-16 bg-gradient-to-br from-gray-50 to-gray-100">
+    <!-- HERO / HEADING -->
+    <div class="pt-28 pb-16 bg-gradient-to-br from-gray-50 to-gray-100">
         <div class="max-w-7xl mx-auto px-6 text-center">
             <span class="font-technical text-crimson text-sm tracking-widest uppercase animate-fadeIn">The Minds</span>
-            <h1 class="font-technical text-5xl md:text-6xl font-bold text-charcoal mt-4 mb-6 animate-fadeInUp stagger-1">Leadership Team</h1>
+            <h1 class="font-technical text-5xl md:text-6xl font-bold text-charcoal mt-4 mb-6 animate-fadeInUp stagger-1">Leadership</h1>
             <p class="font-elegant text-xl text-gray-600 max-w-3xl mx-auto animate-fadeInUp stagger-2">
                 Meet the visionaries engineering the circular economy. Our diverse team brings together expertise in technology, operations, finance, marketing, research, and people.
             </p>
         </div>
     </div>
 
+    <!-- LEADERSHIP GRID -->
     <section class="py-24 bg-white">
         <div class="max-w-7xl mx-auto px-6">
             <div class="grid md:grid-cols-3 gap-12">
+                <!-- Atiksh -->
                 <div class="text-center group animate-scaleIn stagger-2">
                     <div class="relative inline-block mb-6">
-                        <div class="w-40 h-40 mx-auto bg-gradient-to-br from-red-100 to-red-200 rounded-full flex items-center justify-center text-charcoal font-bold text-4xl group-hover:from-charcoal group-hover:to-gray-800 group-hover:text-white transition-all duration-300 shadow-xl group-hover:shadow-2xl animate-float">
+                        <div class="w-40 h-40 mx-auto bg-gradient-to-br from-red-100 to-red-200 rounded-full flex items-center justify-center text-charcoal font-bold text-4xl group-hover:from-charcoal group-hover:to-gray-800 group-hover:text-white transition-all duration-300 shadow-lg group-hover:shadow-xl">
                             A
                         </div>
                         <div class="absolute -bottom-2 left-1/2 transform -translate-x-1/2 bg-crimson text-white px-4 py-1 rounded-full text-xs font-technical uppercase tracking-wider">CEO</div>
@@ -94,9 +92,10 @@
                     </p>
                 </div>
 
+                <!-- Lavitra -->
                 <div class="text-center group animate-scaleIn stagger-3">
                     <div class="relative inline-block mb-6">
-                        <div class="w-40 h-40 mx-auto bg-gradient-to-br from-green-100 to-emerald-200 rounded-full flex items-center justify-center text-forest font-bold text-4xl group-hover:from-forest group-hover:to-green-700 group-hover:text-white transition-all duration-300 shadow-xl group-hover:shadow-2xl animate-float" style="animation-delay: 0.2s;">
+                        <div class="w-40 h-40 mx-auto bg-gradient-to-br from-green-100 to-emerald-200 rounded-full flex items-center justify-center text-forest font-bold text-4xl group-hover:from-forest group-hover:to-green-700 group-hover:text-white transition-all duration-300 shadow-lg group-hover:shadow-xl" style="animation-delay: 0.2s;">
                             L
                         </div>
                         <div class="absolute -bottom-2 left-1/2 transform -translate-x-1/2 bg-forest text-white px-4 py-1 rounded-full text-xs font-technical uppercase tracking-wider">COO & CTO</div>
@@ -108,9 +107,10 @@
                     </p>
                 </div>
 
+                <!-- Kamlesh -->
                 <div class="text-center group animate-scaleIn stagger-4">
                     <div class="relative inline-block mb-6">
-                        <div class="w-40 h-40 mx-auto bg-gradient-to-br from-gray-100 to-gray-200 rounded-full flex items-center justify-center text-charcoal font-bold text-4xl group-hover:from-charcoal group-hover:to-gray-800 group-hover:text-white transition-all duration-300 shadow-xl group-hover:shadow-2xl animate-float" style="animation-delay: 0.4s;">
+                        <div class="w-40 h-40 mx-auto bg-gradient-to-br from-gray-100 to-gray-200 rounded-full flex items-center justify-center text-charcoal font-bold text-4xl group-hover:from-charcoal group-hover:to-gray-800 group-hover:text-white transition-all duration-300 shadow-lg group-hover:shadow-xl" style="animation-delay: 0.4s;">
                             K
                         </div>
                         <div class="absolute -bottom-2 left-1/2 transform -translate-x-1/2 bg-crimson text-white px-4 py-1 rounded-full text-xs font-technical uppercase tracking-wider">CFO</div>
@@ -122,9 +122,10 @@
                     </p>
                 </div>
 
+                <!-- Srishti -->
                 <div class="text-center group animate-scaleIn stagger-5">
                     <div class="relative inline-block mb-6">
-                        <div class="w-40 h-40 mx-auto bg-gradient-to-br from-green-100 to-emerald-200 rounded-full flex items-center justify-center text-forest font-bold text-4xl group-hover:from-forest group-hover:to-green-700 group-hover:text-white transition-all duration-300 shadow-xl group-hover:shadow-2xl animate-float" style="animation-delay: 0.6s;">
+                        <div class="w-40 h-40 mx-auto bg-gradient-to-br from-green-100 to-emerald-200 rounded-full flex items-center justify-center text-forest font-bold text-4xl group-hover:from-forest group-hover:to-green-700 group-hover:text-white transition-all duration-300 shadow-lg group-hover:shadow-xl" style="animation-delay: 0.6s;">
                             S
                         </div>
                         <div class="absolute -bottom-2 left-1/2 transform -translate-x-1/2 bg-forest text-white px-4 py-1 rounded-full text-xs font-technical uppercase tracking-wider">CMO</div>
@@ -136,9 +137,10 @@
                     </p>
                 </div>
 
+                <!-- Arjun -->
                 <div class="text-center group animate-scaleIn stagger-6">
                     <div class="relative inline-block mb-6">
-                        <div class="w-40 h-40 mx-auto bg-gradient-to-br from-red-100 to-red-200 rounded-full flex items-center justify-center text-charcoal font-bold text-4xl group-hover:from-charcoal group-hover:to-gray-800 group-hover:text-white transition-all duration-300 shadow-xl group-hover:shadow-2xl animate-float" style="animation-delay: 0.8s;">
+                        <div class="w-40 h-40 mx-auto bg-gradient-to-br from-red-100 to-red-200 rounded-full flex items-center justify-center text-charcoal font-bold text-4xl group-hover:from-charcoal group-hover:to-gray-800 group-hover:text-white transition-all duration-300 shadow-lg group-hover:shadow-xl" style="animation-delay: 0.8s;">
                             A
                         </div>
                         <div class="absolute -bottom-2 left-1/2 transform -translate-x-1/2 bg-crimson text-white px-4 py-1 rounded-full text-xs font-technical uppercase tracking-wider">CRDO</div>
@@ -150,9 +152,10 @@
                     </p>
                 </div>
 
+                <!-- Jivitesh -->
                 <div class="text-center group animate-scaleIn stagger-3">
                     <div class="relative inline-block mb-6">
-                        <div class="w-40 h-40 mx-auto bg-gradient-to-br from-green-100 to-emerald-200 rounded-full flex items-center justify-center text-forest font-bold text-4xl group-hover:from-forest group-hover:to-green-700 group-hover:text-white transition-all duration-300 shadow-xl group-hover:shadow-2xl animate-float" style="animation-delay: 1s;">
+                        <div class="w-40 h-40 mx-auto bg-gradient-to-br from-green-100 to-emerald-200 rounded-full flex items-center justify-center text-forest font-bold text-4xl group-hover:from-forest group-hover:to-green-700 group-hover:text-white transition-all duration-300 shadow-lg group-hover:shadow-xl" style="animation-delay: 1s;">
                             J
                         </div>
                         <div class="absolute -bottom-2 left-1/2 transform -translate-x-1/2 bg-forest text-white px-4 py-1 rounded-full text-xs font-technical uppercase tracking-wider">HR</div>
@@ -167,6 +170,7 @@
         </div>
     </section>
 
+    <!-- JOIN OUR MISSION -->
     <section class="py-24 bg-gradient-to-br from-gray-50 to-gray-100">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center mb-16 animate-fadeInUp">
@@ -216,6 +220,7 @@
         </div>
     </section>
 
+    <!-- CONTACT -->
     <section id="contact" class="py-24 bg-charcoal text-white">
         <div class="max-w-4xl mx-auto px-6">
             <div class="text-center mb-12 animate-fadeInUp">
