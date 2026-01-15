@@ -215,89 +215,46 @@
         </div>
     </section>
 
-   <section id="contact" class="py-24 bg-charcoal text-white">
-  <div class="max-w-4xl mx-auto px-6">
-    <div class="text-center mb-12">
-      <span class="font-technical text-forest text-sm tracking-widest uppercase">Get In Touch</span>
-      <h2 class="font-technical text-4xl font-bold mt-4">Contact Us</h2>
-      <p class="font-elegant text-gray-400 mt-4">
-        Want to join our team or learn more about careers? Reach out to us.
-      </p>
-    </div>
+    <section id="contact" class="py-24 bg-charcoal text-white">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="text-center mb-12 animate-fadeInUp">
+                <span class="font-technical text-forest text-sm tracking-widest uppercase">Get In Touch</span>
+                <h2 class="font-technical text-4xl font-bold mt-4">Contact Us</h2>
+                <p class="font-elegant text-gray-400 mt-4">Want to join our team or learn more about careers? Reach out to us.</p>
+            </div>
 
-    <!-- Flask Contact Form -->
-    <form method="POST" action="/" class="space-y-6">
-      <div class="grid md:grid-cols-2 gap-6">
-        <div>
-          <label for="name" class="block font-technical text-sm mb-2">Name</label>
-          <input
-            id="name"
-            name="name"
-            type="text"
-            required
-            class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-forest transition-colors"
-            placeholder="Your name"
-          >
+            <form class="space-y-6 animate-fadeInUp stagger-1">
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block font-technical text-sm mb-2">Name</label>
+                        <input type="text" class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-forest transition-colors" placeholder="Your name">
+                    </div>
+                    <div>
+                        <label class="block font-technical text-sm mb-2">Email</label>
+                        <input type="email" class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-forest transition-colors" placeholder="your@email.com">
+                    </div>
+                </div>
+                <div>
+                    <label class="block font-technical text-sm mb-2">Subject</label>
+                    <select class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white focus:outline-none focus:border-forest transition-colors">
+                        <option value="" class="bg-charcoal">Select a topic</option>
+                        <option value="career" class="bg-charcoal">Career Opportunities</option>
+                        <option value="partnership" class="bg-charcoal">Partnership Inquiry</option>
+                        <option value="general" class="bg-charcoal">General Question</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block font-technical text-sm mb-2">Message</label>
+                    <textarea rows="5" class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-forest transition-colors resize-none" placeholder="Tell us more..."></textarea>
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="bg-forest text-white font-technical font-bold px-12 py-4 hover:bg-green-700 hover:scale-105 transition-all">
+                        Send Message
+                    </button>
+                </div>
+            </form>
         </div>
-        <div>
-          <label for="email" class="block font-technical text-sm mb-2">Email</label>
-          <input
-            id="email"
-            name="email"
-            type="email"
-            required
-            class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-forest transition-colors"
-            placeholder="your@email.com"
-          >
-        </div>
-      </div>
-
-      <div>
-        <label for="message" class="block font-technical text-sm mb-2">Subject</label>
-        <select name="subject" class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white focus:outline-none focus:border-forest transition-colors">
-          <option value="" disabled selected>Select a topic</option>
-          <option value="Career Opportunities">Career Opportunities</option>
-          <option value="Partnership Inquiry">Partnership Inquiry</option>
-          <option value="General Question">General Question</option>
-        </select>
-      </div>
-
-      <div>
-        <label for="message" class="block font-technical text-sm mb-2">Message</label>
-        <textarea
-          id="message"
-          name="message"
-          rows="5"
-          required
-          class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-forest transition-colors resize-none"
-          placeholder="Tell us more..."
-        ></textarea>
-      </div>
-
-      <!-- Flask feedback messages -->
-      {% if message %}
-      <div class="bg-green-900/50 border border-green-400 text-green-200 p-4 rounded-lg">
-        <p class="font-technical text-sm">{{ message }}</p>
-      </div>
-      {% endif %}
-      {% if error %}
-      <div class="bg-red-900/50 border border-red-400 text-red-200 p-4 rounded-lg">
-        <p class="font-technical text-sm">{{ error }}</p>
-      </div>
-      {% endif %}
-
-      <div class="text-center">
-        <button
-          type="submit"
-          class="bg-forest text-white font-technical font-bold px-12 py-4 hover:bg-green-700 hover:scale-105 transition-all"
-        >
-          Send Message
-        </button>
-      </div>
-    </form>
-  </div>
-</section>
-
+    </section>
 
     <footer class="bg-charcoal border-t border-white/10 text-gray-400 py-12 text-center font-technical text-sm">
         <p>© 2026 Thermowave Dynamics. Engineering a Circular Future.</p>
