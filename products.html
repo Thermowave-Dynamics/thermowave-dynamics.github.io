@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en" class="h-full scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products | Thermowave Dynamics</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500&display=swap" rel="stylesheet">
+    <style>
+        body { box-sizing: border-box; }
+        :root { --charcoal: #1a1a1a; --crimson: #C41E3A; --forest: #228B22; }
+        .font-technical { font-family: 'Space Grotesk', monospace; }
+        .font-elegant { font-family: 'Source Serif 4', Georgia, serif; }
+        @keyframes slideInLeft { from { opacity: 0; transform: translateX(-50px); } to { opacity: 1; transform: translateX(0); } }
+        @keyframes slideInRight { from { opacity: 0; transform: translateX(50px); } to { opacity: 1; transform: translateX(0); } }
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        .animate-slideInLeft { animation: slideInLeft 0.8s ease-out forwards; }
+        .animate-slideInRight { animation: slideInRight 0.8s ease-out forwards; }
+        .animate-fadeInUp { animation: fadeInUp 0.8s ease-out forwards; }
+    </style>
+</head>
+<body class="h-full bg-gray-50 font-elegant text-charcoal overflow-x-hidden">
+
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-[#1a1a1a] backdrop-blur-md border-b border-white/10 shadow-lg">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+            <a href="index.html" class="font-technical font-bold text-white text-xl tracking-tight hover:text-crimson transition-colors">THERMOWAVE DYNAMICS</a>
+            <div class="hidden md:flex items-center gap-8 font-technical text-sm">
+                <a href="solution.html" class="text-white/80 hover:text-white transition-colors">Problem & Solution</a>
+                <a href="products.html" class="text-white border-b-2 border-crimson">Products</a>
+                <a href="team.html" class="text-white/80 hover:text-white transition-colors">Team</a>
+                <a href="#contact" class="px-4 py-2 border border-white/20 rounded text-white hover:bg-white hover:text-black transition-all">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="pt-32 pb-16 bg-[#1a1a1a] text-center">
+        <h1 class="font-technical text-4xl md:text-5xl font-bold text-white animate-fadeInUp">Our Reactors</h1>
+        <p class="text-gray-400 mt-4 font-elegant animate-fadeInUp">Scalable solutions for homes and industries.</p>
+    </div>
+
+    <section class="py-24 max-w-7xl mx-auto px-6">
+        <div class="grid md:grid-cols-2 gap-8">
+            
+            <div class="order-1 md:order-2 bg-white text-charcoal rounded-2xl overflow-hidden shadow-2xl border-2 border-forest relative group hover:shadow-[0_0_40px_rgba(16,185,129,0.3)] hover:scale-[1.02] transition-all duration-500 animate-slideInRight">
+                <div class="absolute top-0 right-0 p-4 bg-forest text-black text-xs font-technical uppercase tracking-wider z-10">Consumer Series</div>
+                <div class="p-12 h-full flex flex-col justify-center">
+                    <div class="mb-6 font-technical text-6xl font-bold bg-gradient-to-r from-green-500 via-emerald-500 to-green-600 bg-clip-text text-transparent">
+                        SPROUT
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">The Sprout Unit</h3>
+                    <p class="text-gray-700 mb-8 font-elegant leading-relaxed">Compact microwave pyrolysis. Turn kitchen waste into soil nutrient in 2 hours.</p>
+                    <ul class="mb-8 space-y-2 font-technical text-sm text-gray-600">
+                        <li class="flex items-center gap-2">✓ 5kg Daily Capacity</li>
+                        <li class="flex items-center gap-2">✓ 40% Less Energy than Standard</li>
+                        <li class="flex items-center gap-2">✓ Odorless Operation</li>
+                    </ul>
+                    <button class="w-full py-4 bg-gradient-to-r from-green-500 to-emerald-600 text-white hover:from-green-600 hover:to-emerald-800 transition-all font-technical uppercase text-sm tracking-widest rounded-lg shadow-xl">
+                        Join Waitlist
+                    </button>
+                </div>
+            </div>
+
+            <div class="order-2 md:order-1 bg-[#1a1a1a] text-white rounded-2xl overflow-hidden shadow-xl relative group hover:shadow-crimson/40 hover:scale-[1.01] transition-all duration-500 animate-slideInLeft">
+                <div class="absolute top-0 right-0 p-4 bg-crimson text-xs font-technical uppercase">Industrial Series</div>
+                <div class="p-12 h-full flex flex-col justify-center">
+                    <div class="mb-6 font-technical text-6xl font-bold bg-gradient-to-r from-red-500 via-crimson to-red-700 bg-clip-text text-transparent">TITAN</div>
+                    <h3 class="text-2xl font-bold mb-4">The Titan V4</h3>
+                    <p class="text-gray-400 mb-8 font-elegant">Designed for municipalities and large scale facilities. Industrial grade continuous processing.</p>
+                    <ul class="mb-8 space-y-2 font-technical text-sm text-gray-400">
+                        <li class="flex items-center gap-2">✓ 50 Tons / Day</li>
+                        <li class="flex items-center gap-2">✓ Syngas Energy Recapture</li>
+                        <li class="flex items-center gap-2">✓ Automated Sorting</li>
+                    </ul>
+                    <button class="w-full py-4 border border-white/20 hover:bg-white hover:text-charcoal transition-all font-technical uppercase text-sm tracking-widest">
+                        Request Specs
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-24 bg-[#1a1a1a] text-white border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16">
+            <div>
+                <h2 class="font-technical text-3xl font-bold mb-6">Order Inquiries.</h2>
+                <p class="font-elegant text-gray-400 mb-8">Discuss deployment logistics with our sales engineering team.</p>
+                <div class="space-y-4 font-technical">
+                    <div class="flex items-center gap-4 text-gray-300"><span class="text-crimson">E:</span> sales@thermowave.com</div>
+                    <div class="flex items-center gap-4 text-gray-300"><span class="text-forest">P:</span> +1 (555) 999-8888</div>
+                </div>
+            </div>
+            <form class="space-y-4">
+                <input type="text" placeholder="Company Name" class="w-full bg-white/5 border border-white/10 p-4 text-white focus:border-crimson outline-none">
+                <input type="email" placeholder="Work Email" class="w-full bg-white/5 border border-white/10 p-4 text-white focus:border-crimson outline-none">
+                <button class="bg-crimson text-white font-technical font-bold px-8 py-3 w-full hover:bg-red-700 transition-all">Request Quote</button>
+            </form>
+        </div>
+    </section>
+
+</body>
+</html>
