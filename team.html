@@ -6,93 +6,260 @@
     <title>Team | Thermowave Dynamics</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500&display=swap" rel="stylesheet">
+    
     <style>
         body { box-sizing: border-box; }
-        :root { --charcoal: #1a1a1a; --crimson: #C41E3A; --forest: #228B22; }
+        :root {
+            --charcoal: #1a1a1a;
+            --crimson: #C41E3A;
+            --forest: #228B22;
+        }
         .font-technical { font-family: 'Space Grotesk', monospace; }
         .font-elegant { font-family: 'Source Serif 4', Georgia, serif; }
-        @keyframes scaleIn { from { opacity: 0; transform: scale(0.9); } to { opacity: 1; transform: scale(1); } }
-        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
-        .animate-scaleIn { animation: scaleIn 0.6s ease-out forwards; }
+        .bg-charcoal { background-color: var(--charcoal); }
+        .text-crimson { color: var(--crimson); }
+        .text-forest { color: var(--forest); }
+        
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes scaleIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
         .animate-fadeInUp { animation: fadeInUp 0.8s ease-out forwards; }
+        .animate-fadeIn { animation: fadeIn 1s ease-out forwards; }
+        .animate-scaleIn { animation: scaleIn 0.6s ease-out forwards; }
+        .animate-float { animation: float 3s ease-in-out infinite; }
         .stagger-1 { animation-delay: 0.1s; opacity: 0; }
         .stagger-2 { animation-delay: 0.2s; opacity: 0; }
         .stagger-3 { animation-delay: 0.3s; opacity: 0; }
         .stagger-4 { animation-delay: 0.4s; opacity: 0; }
+        .stagger-5 { animation-delay: 0.5s; opacity: 0; }
+        .stagger-6 { animation-delay: 0.6s; opacity: 0; }
+        html { scroll-behavior: smooth; }
+        section { scroll-margin-top: 80px; }
+        .transition-all { transition: all 0.3s ease; }
     </style>
 </head>
 <body class="h-full bg-white font-elegant text-charcoal overflow-x-hidden">
 
-    <nav class="fixed top-0 left-0 right-0 z-50 bg-[#1a1a1a] backdrop-blur-md border-b border-white/10 shadow-lg">
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-charcoal backdrop-blur-md border-b border-white/10 shadow-lg">
         <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-            <a href="index.html" class="font-technical font-bold text-white text-xl tracking-tight hover:text-crimson transition-colors">THERMOWAVE DYNAMICS</a>
-            <div class="hidden md:flex items-center gap-8 font-technical text-sm">
-                <a href="solution.html" class="text-white/80 hover:text-white transition-colors">Problem & Solution</a>
+            <div class="flex items-center gap-3">
+                <span class="font-technical font-bold text-white text-xl tracking-tight">THERMOWAVE DYNAMICS</span>
+            </div>
+            <div class="flex items-center gap-6 font-technical text-sm">
+                <a href="index.html" class="text-white/80 hover:text-white transition-colors">Home</a>
+                <a href="technology.html" class="text-white/80 hover:text-white transition-colors">Technology</a>
                 <a href="products.html" class="text-white/80 hover:text-white transition-colors">Products</a>
-                <a href="team.html" class="text-white border-b-2 border-crimson">Team</a>
-                <a href="#contact" class="px-4 py-2 border border-white/20 rounded text-white hover:bg-white hover:text-black transition-all">Contact</a>
+                <a href="team.html" class="text-white transition-colors">Team</a>
             </div>
         </div>
     </nav>
 
-    <div class="pt-32 pb-16 bg-[#1a1a1a] text-center">
-        <span class="font-technical text-crimson text-sm uppercase tracking-[0.2em]">The Minds</span>
-        <h1 class="font-technical text-4xl md:text-5xl font-bold text-white mt-4 animate-fadeInUp">Leadership</h1>
-        <p class="text-gray-400 mt-4 font-elegant animate-fadeInUp stagger-1">Engineering the circular economy requires bold vision.</p>
+    <div class="pt-32 pb-16 bg-gradient-to-br from-gray-50 to-gray-100">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <span class="font-technical text-crimson text-sm tracking-widest uppercase animate-fadeIn">The Minds</span>
+            <h1 class="font-technical text-5xl md:text-6xl font-bold text-charcoal mt-4 mb-6 animate-fadeInUp stagger-1">Leadership Team</h1>
+            <p class="font-elegant text-xl text-gray-600 max-w-3xl mx-auto animate-fadeInUp stagger-2">
+                Meet the visionaries engineering the circular economy. Our diverse team brings together expertise in technology, operations, finance, marketing, research, and people.
+            </p>
+        </div>
     </div>
 
-    <section class="py-24 max-w-7xl mx-auto px-6">
-        <div class="grid md:grid-cols-3 gap-10">
-            <div class="text-center group animate-scaleIn stagger-1">
-                <div class="w-32 h-32 mx-auto bg-gray-200 rounded-full mb-6 flex items-center justify-center text-charcoal font-bold text-2xl group-hover:bg-charcoal group-hover:text-white group-hover:scale-110 transition-all duration-300 shadow-lg">A</div>
-                <h3 class="font-bold text-lg font-technical">Atiksh</h3>
-                <p class="text-crimson text-sm font-technical mb-2">CEO</p>
-                <p class="text-gray-500 text-sm font-elegant px-4">Visionary leader driving Thermowave's mission to revolutionize waste-to-energy solutions.</p>
-            </div>
-            <div class="text-center group animate-scaleIn stagger-2">
-                <div class="w-32 h-32 mx-auto bg-gray-200 rounded-full mb-6 flex items-center justify-center text-forest font-bold text-2xl group-hover:bg-forest group-hover:text-white group-hover:scale-110 transition-all duration-300 shadow-lg">L</div>
-                <h3 class="font-bold text-lg font-technical">Lavitra</h3>
-                <p class="text-forest text-sm font-technical mb-2">COO & CTO</p>
-                <p class="text-gray-500 text-sm font-elegant px-4">Technology leader responsible for operational execution and technical direction.</p>
-            </div>
-            <div class="text-center group animate-scaleIn stagger-3">
-                <div class="w-32 h-32 mx-auto bg-gray-200 rounded-full mb-6 flex items-center justify-center text-charcoal font-bold text-2xl group-hover:bg-charcoal group-hover:text-white group-hover:scale-110 transition-all duration-300 shadow-lg">K</div>
-                <h3 class="font-bold text-lg font-technical">Kamlesh</h3>
-                <p class="text-crimson text-sm font-technical mb-2">CFO</p>
-                <p class="text-gray-500 text-sm font-elegant px-4">Financial strategist managing investments and ensuring sustainable growth.</p>
-            </div>
-            <div class="text-center group animate-scaleIn stagger-4">
-                <div class="w-32 h-32 mx-auto bg-gray-200 rounded-full mb-6 flex items-center justify-center text-forest font-bold text-2xl group-hover:bg-forest group-hover:text-white group-hover:scale-110 transition-all duration-300 shadow-lg">S</div>
-                <h3 class="font-bold text-lg font-technical">Srishti</h3>
-                <p class="text-forest text-sm font-technical mb-2">CMO</p>
-                <p class="text-gray-500 text-sm font-elegant px-4">Creative strategist connecting our mission with the world.</p>
-            </div>
-            <div class="text-center group animate-scaleIn stagger-4">
-                <div class="w-32 h-32 mx-auto bg-gray-200 rounded-full mb-6 flex items-center justify-center text-charcoal font-bold text-2xl group-hover:bg-charcoal group-hover:text-white group-hover:scale-110 transition-all duration-300 shadow-lg">A</div>
-                <h3 class="font-bold text-lg font-technical">Arjun</h3>
-                <p class="text-crimson text-sm font-technical mb-2">Lead Engineer</p>
-                <p class="text-gray-500 text-sm font-elegant px-4">Head of the microwave reactor prototyping division.</p>
+    <section class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-3 gap-12">
+                <div class="text-center group animate-scaleIn stagger-2">
+                    <div class="relative inline-block mb-6">
+                        <div class="w-40 h-40 mx-auto bg-gradient-to-br from-red-100 to-red-200 rounded-full flex items-center justify-center text-charcoal font-bold text-4xl group-hover:from-charcoal group-hover:to-gray-800 group-hover:text-white transition-all duration-300 shadow-xl group-hover:shadow-2xl animate-float">
+                            A
+                        </div>
+                        <div class="absolute -bottom-2 left-1/2 transform -translate-x-1/2 bg-crimson text-white px-4 py-1 rounded-full text-xs font-technical uppercase tracking-wider">CEO</div>
+                    </div>
+                    <h3 class="font-bold text-2xl font-technical mb-2">Atiksh</h3>
+                    <p class="text-crimson text-sm font-technical mb-4 uppercase tracking-wider">Chief Executive Officer</p>
+                    <p class="text-gray-600 font-elegant leading-relaxed">
+                        Visionary leader driving Thermowave's mission to revolutionize waste-to-energy solutions. Atiksh brings strategic direction and a passion for sustainable innovation.
+                    </p>
+                </div>
+
+                <div class="text-center group animate-scaleIn stagger-3">
+                    <div class="relative inline-block mb-6">
+                        <div class="w-40 h-40 mx-auto bg-gradient-to-br from-green-100 to-emerald-200 rounded-full flex items-center justify-center text-forest font-bold text-4xl group-hover:from-forest group-hover:to-green-700 group-hover:text-white transition-all duration-300 shadow-xl group-hover:shadow-2xl animate-float" style="animation-delay: 0.2s;">
+                            L
+                        </div>
+                        <div class="absolute -bottom-2 left-1/2 transform -translate-x-1/2 bg-forest text-white px-4 py-1 rounded-full text-xs font-technical uppercase tracking-wider">COO & CTO</div>
+                    </div>
+                    <h3 class="font-bold text-2xl font-technical mb-2">Lavitra</h3>
+                    <p class="text-forest text-sm font-technical mb-4 uppercase tracking-wider">Chief Operating & Technology Officer</p>
+                    <p class="text-gray-600 font-elegant leading-relaxed">
+                        Technology leader responsible for operational execution and technical direction, driving innovation and overseeing both organizational performance and advanced engineering development.
+                    </p>
+                </div>
+
+                <div class="text-center group animate-scaleIn stagger-4">
+                    <div class="relative inline-block mb-6">
+                        <div class="w-40 h-40 mx-auto bg-gradient-to-br from-gray-100 to-gray-200 rounded-full flex items-center justify-center text-charcoal font-bold text-4xl group-hover:from-charcoal group-hover:to-gray-800 group-hover:text-white transition-all duration-300 shadow-xl group-hover:shadow-2xl animate-float" style="animation-delay: 0.4s;">
+                            K
+                        </div>
+                        <div class="absolute -bottom-2 left-1/2 transform -translate-x-1/2 bg-crimson text-white px-4 py-1 rounded-full text-xs font-technical uppercase tracking-wider">CFO</div>
+                    </div>
+                    <h3 class="font-bold text-2xl font-technical mb-2">Kamlesh</h3>
+                    <p class="text-crimson text-sm font-technical mb-4 uppercase tracking-wider">Chief Financial Officer</p>
+                    <p class="text-gray-600 font-elegant leading-relaxed">
+                        Financial strategist managing investments and ensuring sustainable growth. Kamlesh oversees all financial operations and strategic planning.
+                    </p>
+                </div>
+
+                <div class="text-center group animate-scaleIn stagger-5">
+                    <div class="relative inline-block mb-6">
+                        <div class="w-40 h-40 mx-auto bg-gradient-to-br from-green-100 to-emerald-200 rounded-full flex items-center justify-center text-forest font-bold text-4xl group-hover:from-forest group-hover:to-green-700 group-hover:text-white transition-all duration-300 shadow-xl group-hover:shadow-2xl animate-float" style="animation-delay: 0.6s;">
+                            S
+                        </div>
+                        <div class="absolute -bottom-2 left-1/2 transform -translate-x-1/2 bg-forest text-white px-4 py-1 rounded-full text-xs font-technical uppercase tracking-wider">CMO</div>
+                    </div>
+                    <h3 class="font-bold text-2xl font-technical mb-2">Srishti</h3>
+                    <p class="text-forest text-sm font-technical mb-4 uppercase tracking-wider">Chief Marketing Officer</p>
+                    <p class="text-gray-600 font-elegant leading-relaxed">
+                        Marketing leader building brand awareness and driving customer engagement. Creative strategist connecting our mission with the world.
+                    </p>
+                </div>
+
+                <div class="text-center group animate-scaleIn stagger-6">
+                    <div class="relative inline-block mb-6">
+                        <div class="w-40 h-40 mx-auto bg-gradient-to-br from-red-100 to-red-200 rounded-full flex items-center justify-center text-charcoal font-bold text-4xl group-hover:from-charcoal group-hover:to-gray-800 group-hover:text-white transition-all duration-300 shadow-xl group-hover:shadow-2xl animate-float" style="animation-delay: 0.8s;">
+                            A
+                        </div>
+                        <div class="absolute -bottom-2 left-1/2 transform -translate-x-1/2 bg-crimson text-white px-4 py-1 rounded-full text-xs font-technical uppercase tracking-wider">CRDO</div>
+                    </div>
+                    <h3 class="font-bold text-2xl font-technical mb-2">Arjun</h3>
+                    <p class="text-crimson text-sm font-technical mb-4 uppercase tracking-wider">Chief Research & Development Officer</p>
+                    <p class="text-gray-600 font-elegant leading-relaxed">
+                        Chief Research & Development Officer spearheading breakthrough innovations in pyrolysis technology and sustainable materials science.
+                    </p>
+                </div>
+
+                <div class="text-center group animate-scaleIn stagger-3">
+                    <div class="relative inline-block mb-6">
+                        <div class="w-40 h-40 mx-auto bg-gradient-to-br from-green-100 to-emerald-200 rounded-full flex items-center justify-center text-forest font-bold text-4xl group-hover:from-forest group-hover:to-green-700 group-hover:text-white transition-all duration-300 shadow-xl group-hover:shadow-2xl animate-float" style="animation-delay: 1s;">
+                            J
+                        </div>
+                        <div class="absolute -bottom-2 left-1/2 transform -translate-x-1/2 bg-forest text-white px-4 py-1 rounded-full text-xs font-technical uppercase tracking-wider">HR</div>
+                    </div>
+                    <h3 class="font-bold text-2xl font-technical mb-2">Jivitesh</h3>
+                    <p class="text-forest text-sm font-technical mb-4 uppercase tracking-wider">Human Resources Director</p>
+                    <p class="text-gray-600 font-elegant leading-relaxed">
+                        Human resources strategist building world-class teams and fostering a culture of innovation, sustainability, and excellence.
+                    </p>
+                </div>
             </div>
         </div>
     </section>
 
-    <section id="contact" class="py-24 bg-[#1a1a1a] text-white border-t border-white/10">
-        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16">
-            <div>
-                <h2 class="font-technical text-3xl font-bold mb-6">Join the team.</h2>
-                <p class="font-elegant text-gray-400 mb-8">We are always looking for brilliant mechanical and chemical engineers.</p>
-                <div class="space-y-4 font-technical">
-                    <div class="flex items-center gap-4 text-gray-300"><span class="text-crimson">E:</span> careers@thermowave.com</div>
-                    <div class="flex items-center gap-4 text-gray-300"><span class="text-white">A:</span> 12 Future Way, Singapore</div>
+    <section class="py-24 bg-gradient-to-br from-gray-50 to-gray-100">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16 animate-fadeInUp">
+                <h2 class="font-technical text-4xl font-bold text-charcoal mb-6">Join Our Mission</h2>
+                <p class="font-elegant text-lg text-gray-600 max-w-2xl mx-auto">
+                    We're always looking for talented individuals who share our passion for sustainability and innovation. If you're ready to make a real impact on the planet, we want to hear from you.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 animate-scaleIn stagger-2">
+                    <div class="w-12 h-12 bg-forest/10 rounded-full flex items-center justify-center mb-6">
+                        <svg class="w-6 h-6 text-forest" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-technical text-xl font-bold mb-3">Innovation First</h3>
+                    <p class="text-gray-600 font-elegant">Work on cutting-edge technology that's changing how the world handles waste.</p>
+                </div>
+
+                <div class="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 animate-scaleIn stagger-3">
+                    <div class="w-12 h-12 bg-crimson/10 rounded-full flex items-center justify-center mb-6">
+                        <svg class="w-6 h-6 text-crimson" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-technical text-xl font-bold mb-3">Global Impact</h3>
+                    <p class="text-gray-600 font-elegant">Make a tangible difference in solving one of humanity's biggest challenges.</p>
+                </div>
+
+                <div class="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 animate-scaleIn stagger-4">
+                    <div class="w-12 h-12 bg-forest/10 rounded-full flex items-center justify-center mb-6">
+                        <svg class="w-6 h-6 text-forest" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+                        </svg>
+                    </div>
+                    <h3 class="font-technical text-xl font-bold mb-3">Diverse Team</h3>
+                    <p class="text-gray-600 font-elegant">Join a collaborative environment where every voice matters and innovation thrives.</p>
                 </div>
             </div>
-            <form class="space-y-4">
-                <input type="text" placeholder="Name" class="w-full bg-white/5 border border-white/10 p-4 text-white focus:border-crimson outline-none">
-                <input type="text" placeholder="LinkedIn URL / Portfolio" class="w-full bg-white/5 border border-white/10 p-4 text-white focus:border-crimson outline-none">
-                <button class="bg-crimson text-white font-technical font-bold px-8 py-3 w-full hover:bg-red-700 transition-all">Submit Application</button>
+
+            <div class="text-center mt-12 animate-fadeInUp stagger-5">
+                <a href="#contact" class="inline-block bg-charcoal text-white font-technical font-bold px-10 py-4 hover:bg-gray-800 hover:scale-105 transition-all">
+                    View Open Positions
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-24 bg-charcoal text-white">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="text-center mb-12 animate-fadeInUp">
+                <span class="font-technical text-forest text-sm tracking-widest uppercase">Get In Touch</span>
+                <h2 class="font-technical text-4xl font-bold mt-4">Contact Us</h2>
+                <p class="font-elegant text-gray-400 mt-4">Want to join our team or learn more about careers? Reach out to us.</p>
+            </div>
+
+            <form class="space-y-6 animate-fadeInUp stagger-1">
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block font-technical text-sm mb-2">Name</label>
+                        <input type="text" class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-forest transition-colors" placeholder="Your name">
+                    </div>
+                    <div>
+                        <label class="block font-technical text-sm mb-2">Email</label>
+                        <input type="email" class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-forest transition-colors" placeholder="your@email.com">
+                    </div>
+                </div>
+                <div>
+                    <label class="block font-technical text-sm mb-2">Subject</label>
+                    <select class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white focus:outline-none focus:border-forest transition-colors">
+                        <option value="" class="bg-charcoal">Select a topic</option>
+                        <option value="career" class="bg-charcoal">Career Opportunities</option>
+                        <option value="partnership" class="bg-charcoal">Partnership Inquiry</option>
+                        <option value="general" class="bg-charcoal">General Question</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block font-technical text-sm mb-2">Message</label>
+                    <textarea rows="5" class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-forest transition-colors resize-none" placeholder="Tell us more..."></textarea>
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="bg-forest text-white font-technical font-bold px-12 py-4 hover:bg-green-700 hover:scale-105 transition-all">
+                        Send Message
+                    </button>
+                </div>
             </form>
         </div>
     </section>
+
+    <footer class="bg-charcoal border-t border-white/10 text-gray-400 py-12 text-center font-technical text-sm">
+        <p>© 2026 Thermowave Dynamics. Engineering a Circular Future.</p>
+    </footer>
 
 </body>
 </html>
