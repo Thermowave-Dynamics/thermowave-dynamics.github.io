@@ -277,7 +277,6 @@ document.getElementById('contact-form').addEventListener('submit', async functio
   const feedbackDiv = document.getElementById('form-feedback');
   const formData = new FormData(this);
   
-  // Show loading
   submitBtn.textContent = 'Sending...';
   submitBtn.disabled = true;
   feedbackDiv.innerHTML = '';
@@ -296,7 +295,7 @@ document.getElementById('contact-form').addEventListener('submit', async functio
           <p class="font-technical text-sm">${result.message}</p>
         </div>
       `;
-      this.reset(); // Clear form
+      this.reset();
     } else {
       feedbackDiv.innerHTML = `
         <div class="bg-red-900/50 border border-red-400 text-red-200 p-4 rounded-lg">
@@ -316,6 +315,7 @@ document.getElementById('contact-form').addEventListener('submit', async functio
   }
 });
 </script>
+
 
 
     <footer class="bg-charcoal border-t border-white/10 text-gray-400 py-12 text-center font-technical text-sm">
