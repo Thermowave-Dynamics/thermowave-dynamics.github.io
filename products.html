@@ -59,6 +59,9 @@
             background-color: #1a1a1a !important;
             color: white !important;
         }
+
+        /* Mobile Menu Toggle classes */
+        #mobile-menu.hidden { display: none; }
     </style>
 </head>
 <body class="h-full bg-white font-elegant text-charcoal overflow-x-hidden">
@@ -68,12 +71,26 @@
             <div class="flex items-center gap-3">
                 <span class="font-technical font-bold text-white text-xl tracking-tight">THERMOWAVE DYNAMICS</span>
             </div>
-            <div class="flex items-center gap-6 font-technical text-sm">
+            
+            <div class="hidden md:flex items-center gap-6 font-technical text-sm">
                 <a href="index.html" class="text-white/80 hover:text-white transition-colors">Home</a>
                 <a href="technology.html" class="text-white/80 hover:text-white transition-colors">Technology</a>
                 <a href="products.html" class="text-white transition-colors">Products</a>
                 <a href="team.html" class="text-white/80 hover:text-white transition-colors">Team</a>
             </div>
+
+            <button id="menu-btn" class="md:hidden text-white focus:outline-none">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path id="menu-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden bg-charcoal border-b border-white/10 px-6 py-4 font-technical text-sm flex flex-col gap-4">
+            <a href="index.html" class="text-white/80 hover:text-white transition-colors">Home</a>
+            <a href="technology.html" class="text-white/80 hover:text-white transition-colors">Technology</a>
+            <a href="products.html" class="text-white transition-colors font-bold">Products</a>
+            <a href="team.html" class="text-white/80 hover:text-white transition-colors">Team</a>
         </div>
     </nav>
 
@@ -214,6 +231,22 @@
     </footer>
 
     <script>
+        // Hamburger Menu Logic
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            // Change icon from hamburger to X when open
+            if (mobileMenu.classList.contains('hidden')) {
+                menuIcon.setAttribute('d', 'M4 6h16M4 12h16M4 18h16');
+            } else {
+                menuIcon.setAttribute('d', 'M6 18L18 6M6 6l12 12');
+            }
+        });
+
+        // Form Logic
         const contactForm = document.getElementById('contact-form');
         const feedbackDiv = document.getElementById('form-feedback');
         const submitBtn = document.getElementById('submit-btn');
