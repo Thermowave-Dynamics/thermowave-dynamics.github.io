@@ -16,9 +16,6 @@
         }
         .font-technical { font-family: 'Space Grotesk', monospace; }
         .font-elegant { font-family: 'Source Serif 4', Georgia, serif; }
-        .bg-charcoal { background-color: var(--charcoal); }
-        .text-crimson { color: var(--crimson); }
-        .text-forest { color: var(--forest); }
         
         @keyframes fadeInUp {
             from { opacity: 0; transform: translateY(30px); }
@@ -28,230 +25,254 @@
             from { opacity: 0; }
             to { opacity: 1; }
         }
-        @keyframes slideInLeft {
-            from { opacity: 0; transform: translateX(-50px); }
-            to { opacity: 1; transform: translateX(0); }
-        }
-        @keyframes slideInRight {
-            from { opacity: 0; transform: translateX(50px); }
-            to { opacity: 1; transform: translateX(0); }
-        }
         @keyframes glow {
-            0%, 100% { box-shadow: 0 0 20px rgba(34,139,34,0.3); }
-            50% { box-shadow: 0 0 40px rgba(34,139,34,0.7); }
+            0%, 100% { box-shadow: 0 0 20px rgba(34,139,34,0.2); }
+            50% { box-shadow: 0 0 40px rgba(34,139,34,0.5); }
         }
-        .animate-fadeInUp { animation: fadeInUp 0.8s ease-out forwards; }
+        
+        .animate-fadeInUp { animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
         .animate-fadeIn { animation: fadeIn 1s ease-out forwards; }
-        .animate-slideInLeft { animation: slideInLeft 0.8s ease-out forwards; }
-        .animate-slideInRight { animation: slideInRight 0.8s ease-out forwards; }
-        .animate-glow { animation: glow 2s ease-in-out infinite; }
+        .animate-glow { animation: glow 3s ease-in-out infinite; }
         .stagger-1 { animation-delay: 0.1s; opacity: 0; }
         .stagger-2 { animation-delay: 0.2s; opacity: 0; }
-        html { scroll-behavior: smooth; }
-        section { scroll-margin-top: 80px; }
-        .transition-all { transition: all 0.3s ease; }
 
-        /* CRITICAL VISIBILITY FIX */
-        select {
-            color-scheme: dark !important;
+        /* Mobile Menu Transition */
+        .mobile-menu-transition {
+            transition: max-height 0.4s ease-in-out, opacity 0.3s ease-in-out;
+            max-height: 0;
+            overflow: hidden;
         }
-        select option {
-            background-color: #1a1a1a !important;
-            color: white !important;
+        .mobile-menu-transition.open {
+            max-height: 400px;
+            opacity: 1;
         }
+
+        /* Select styling for dark backgrounds */
+        select { color-scheme: dark !important; }
     </style>
 </head>
-<body class="h-full bg-white font-elegant text-charcoal overflow-x-hidden">
+<body class="h-full bg-white font-elegant text-[#1a1a1a] overflow-x-hidden">
 
-    <nav class="fixed top-0 left-0 right-0 z-50 bg-charcoal backdrop-blur-md border-b border-white/10 shadow-lg">
+    <nav class="fixed top-0 left-0 right-0 z-[100] bg-[#1a1a1a]/95 backdrop-blur-md border-b border-white/10 shadow-lg">
         <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-            <div class="flex items-center gap-3">
-                <span class="font-technical font-bold text-white text-xl tracking-tight">THERMOWAVE DYNAMICS</span>
+            <div class="flex items-center">
+                <span class="font-technical font-bold text-white text-lg sm:text-xl tracking-tight uppercase">Thermowave Dynamics</span>
             </div>
-            <div class="flex items-center gap-6 font-technical text-sm">
-                <a href="index.html" class="text-white/80 hover:text-white transition-colors">Home</a>
-                <a href="technology.html" class="text-white/80 hover:text-white transition-colors">Technology</a>
-                <a href="products.html" class="text-white transition-colors">Products</a>
-                <a href="team.html" class="text-white/80 hover:text-white transition-colors">Team</a>
+            
+            <div class="hidden md:flex items-center gap-8 font-technical text-sm">
+                <a href="index.html" class="text-white/70 hover:text-white transition-colors">Home</a>
+                <a href="technology.html" class="text-white/70 hover:text-white transition-colors">Technology</a>
+                <a href="products.html" class="text-white border-b border-[#228B22] pb-1 transition-colors">Products</a>
+                <a href="team.html" class="text-white/70 hover:text-white transition-colors">Team</a>
+            </div>
+
+            <button id="menu-toggle" class="md:hidden text-white p-2 focus:outline-none">
+                <svg id="menu-icon" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
+            </button>
+        </div>
+
+        <div id="mobile-menu" class="md:hidden bg-[#1a1a1a] mobile-menu-transition">
+            <div class="flex flex-col p-6 space-y-5 font-technical text-base uppercase tracking-widest">
+                <a href="index.html" class="text-white/60">Home</a>
+                <a href="technology.html" class="text-white/60">Technology</a>
+                <a href="products.html" class="text-white">Products</a>
+                <a href="team.html" class="text-white/60">Team</a>
+                <a href="#contact" onclick="toggleMenu()" class="text-[#228B22] font-bold">Contact</a>
             </div>
         </div>
     </nav>
 
-    <div class="pt-32 pb-16 bg-gradient-to-br from-gray-50 to-gray-100">
+    <div class="pt-32 pb-16 lg:pt-48 lg:pb-32 bg-gradient-to-br from-gray-50 to-gray-200">
         <div class="max-w-7xl mx-auto px-6 text-center">
-            <span class="font-technical text-forest text-sm tracking-widest uppercase animate-fadeIn">Product Line</span>
-            <h1 class="font-technical text-5xl md:text-6xl font-bold text-charcoal mt-4 mb-6 animate-fadeInUp stagger-1">Our Reactors</h1>
-            <p class="font-elegant text-xl text-gray-600 max-w-3xl mx-auto animate-fadeInUp stagger-2">
-                From household waste to industrial-scale processing, we have solutions for every need.
+            <span class="font-technical text-[#228B22] text-xs sm:text-sm tracking-[0.3em] uppercase animate-fadeIn">Advanced Systems</span>
+            <h1 class="font-technical text-4xl sm:text-5xl lg:text-7xl font-bold text-[#1a1a1a] mt-6 mb-6 animate-fadeInUp stagger-1 uppercase">Our Reactors</h1>
+            <p class="font-elegant text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto animate-fadeInUp stagger-2 leading-relaxed">
+                From high-efficiency home units to industrial waste-to-energy plants.
             </p>
         </div>
     </div>
 
-    <section class="py-24 bg-white">
+    <section class="py-20 lg:py-32 bg-white">
         <div class="max-w-7xl mx-auto px-6">
-            <div class="grid md:grid-cols-2 gap-12 items-center mb-24">
-                <div class="order-2 md:order-1 animate-slideInLeft">
-                    <div class="bg-white rounded-2xl overflow-hidden shadow-2xl border-2 border-forest relative group animate-glow">
-                        <div class="absolute top-0 right-0 p-4 bg-forest text-white text-xs font-technical uppercase tracking-wider z-10">Consumer Series</div>
-                        <div class="p-12">
-                            <div class="mb-6 font-technical text-7xl font-bold bg-gradient-to-r from-green-500 via-emerald-500 to-green-600 bg-clip-text text-transparent">
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center mb-24 lg:mb-40">
+                <div class="order-2 lg:order-1 animate-fadeInUp">
+                    <div class="bg-white rounded-3xl overflow-hidden shadow-2xl border border-gray-100 animate-glow relative group transition-all duration-500 hover:shadow-green-900/10">
+                        <div class="absolute top-0 right-0 p-4 bg-[#228B22] text-white text-[10px] font-technical uppercase tracking-widest z-10 rounded-bl-xl">Consumer Series</div>
+                        <div class="p-8 sm:p-12">
+                            <div class="mb-6 font-technical text-5xl sm:text-7xl font-bold bg-gradient-to-r from-green-600 to-emerald-500 bg-clip-text text-transparent">
                                 SPROUT
                             </div>
-                            <h2 class="text-3xl font-bold mb-4 text-charcoal">The Sprout Unit</h2>
-                            <p class="text-gray-700 mb-6 font-elegant text-lg leading-relaxed">
-                                The future of home composting. Turn kitchen waste into nutrient-rich biochar in just 2 hours.
+                            <h2 class="text-3xl font-bold mb-4 text-[#1a1a1a]">The Sprout Unit</h2>
+                            <p class="text-gray-600 mb-8 font-elegant text-lg leading-relaxed">
+                                Decoupling waste from landfills. Turn organic kitchen waste into carbon-negative biochar in a rapid 2-hour cycle.
                             </p>
-                            <div class="space-y-4 mb-8">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-10">
                                 <div class="flex items-start gap-3">
-                                    <svg class="w-6 h-6 text-forest flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                                    <div><h4 class="font-technical font-bold">Compact Design</h4><p class="text-gray-600 text-sm">Fits perfectly in your kitchen</p></div>
+                                    <svg class="w-5 h-5 text-[#228B22] mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                                    <div><h4 class="font-technical font-bold text-sm">Compact</h4><p class="text-gray-500 text-xs">Countertop footprint</p></div>
                                 </div>
                                 <div class="flex items-start gap-3">
-                                    <svg class="w-6 h-6 text-forest flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
-                                    <div><h4 class="font-technical font-bold">2-Hour Cycle</h4><p class="text-gray-600 text-sm">Fast processing waste to biochar</p></div>
+                                    <svg class="w-5 h-5 text-[#228B22] mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+                                    <div><h4 class="font-technical font-bold text-sm">Clean</h4><p class="text-gray-500 text-xs">Odor-locking tech</p></div>
                                 </div>
                             </div>
-                            <a href="#contact" class="inline-block w-full py-4 text-center bg-gradient-to-r from-green-500 to-emerald-600 text-white font-technical uppercase text-sm tracking-widest rounded-lg shadow-xl">
-                                Join Waitlist
+                            <a href="#contact" class="block w-full py-5 text-center bg-[#1a1a1a] text-white font-technical uppercase text-xs tracking-[0.2em] rounded-xl hover:bg-[#228B22] transition-colors shadow-lg">
+                                Join Priority Waitlist
                             </a>
                         </div>
                     </div>
                 </div>
-                <div class="order-1 md:order-2 animate-slideInRight">
-                    <div class="bg-green-50 rounded-xl p-6 border border-green-200">
-                        <h3 class="font-technical text-xl font-bold mb-2">Specifications</h3>
-                        <div class="space-y-2 text-gray-700 font-elegant text-sm">
-                            <div class="flex justify-between border-b border-gray-200 pb-2"><span>Capacity:</span><span class="font-technical">To Be Declared</span></div>
-                            <div class="flex justify-between border-b border-gray-200 pb-2"><span>Power:</span><span class="font-technical">To Be Declared</span></div>
+                <div class="order-1 lg:order-2">
+                    <div class="bg-green-50 rounded-2xl p-8 border border-green-100 animate-fadeIn">
+                        <h3 class="font-technical text-xl font-bold mb-6 text-[#1a1a1a]">Technical Specifications</h3>
+                        <div class="space-y-4 text-gray-700 font-elegant text-sm">
+                            <div class="flex justify-between border-b border-green-200/50 pb-3"><span>Capacity</span><span class="font-technical font-bold">2.5L / Cycle</span></div>
+                            <div class="flex justify-between border-b border-green-200/50 pb-3"><span>Process Time</span><span class="font-technical font-bold">120 Minutes</span></div>
+                            <div class="flex justify-between border-b border-green-200/50 pb-3"><span>Energy Load</span><span class="font-technical font-bold">Standard Wall Plug</span></div>
+                            <div class="flex justify-between pb-3"><span>Output</span><span class="font-technical font-bold">Enriched Biochar</span></div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="grid md:grid-cols-2 gap-12 items-center">
-                <div class="animate-slideInLeft">
-                    <div class="bg-gray-50 rounded-xl p-6 border border-gray-200">
-                        <h3 class="font-technical text-xl font-bold mb-2 text-charcoal">Specifications</h3>
-                        <div class="space-y-2 text-gray-700 font-elegant text-sm">
-                            <div class="flex justify-between border-b border-gray-200 pb-2"><span>Capacity:</span><span class="font-technical">To Be Declared</span></div>
-                            <div class="flex justify-between border-b border-gray-200 pb-2"><span>Operation:</span><span class="font-technical">To Be Declared</span></div>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+                <div class="lg:px-12">
+                    <div class="bg-gray-50 rounded-2xl p-8 border border-gray-200 animate-fadeIn">
+                        <h3 class="font-technical text-xl font-bold mb-6 text-[#1a1a1a]">Industrial Performance</h3>
+                        <div class="space-y-4 text-gray-700 font-elegant text-sm">
+                            <div class="flex justify-between border-b border-gray-200 pb-3"><span>Daily Throughput</span><span class="font-technical font-bold">25 Tons</span></div>
+                            <div class="flex justify-between border-b border-gray-200 pb-3"><span>Feedstock</span><span class="font-technical font-bold">Mixed Plastics/Rubber</span></div>
+                            <div class="flex justify-between border-b border-gray-200 pb-3"><span>Heat Source</span><span class="font-technical font-bold">Recycled Syngas</span></div>
+                            <div class="flex justify-between pb-3"><span>Emissions</span><span class="font-technical font-bold">Zero Carbon (Closed)</span></div>
                         </div>
                     </div>
                 </div>
 
-                <div class="animate-slideInRight">
-                    <div class="bg-charcoal text-white rounded-2xl overflow-hidden shadow-2xl border-2 border-crimson relative group hover:shadow-crimson/50 transition-all duration-500">
-                        <div class="absolute top-0 right-0 p-4 bg-crimson text-xs font-technical uppercase">Industrial Series</div>
-                        <div class="p-12">
-                            <div class="mb-6 font-technical text-7xl font-bold bg-gradient-to-r from-red-500 via-crimson to-red-700 bg-clip-text text-transparent">
+                <div class="animate-fadeInUp stagger-1">
+                    <div class="bg-[#1a1a1a] text-white rounded-3xl overflow-hidden shadow-2xl border-2 border-[#C41E3A]/20 transition-all duration-500 hover:border-[#C41E3A]/60">
+                        <div class="absolute top-0 right-0 p-4 bg-[#C41E3A] text-white text-[10px] font-technical uppercase tracking-widest z-10 rounded-bl-xl">Industrial Series</div>
+                        <div class="p-8 sm:p-12">
+                            <div class="mb-6 font-technical text-5xl sm:text-7xl font-bold bg-gradient-to-r from-red-600 to-crimson bg-clip-text text-transparent">
                                 TITAN
                             </div>
                             <h2 class="text-3xl font-bold mb-4">The Titan V4</h2>
-                            <p class="text-gray-400 mb-6 font-elegant text-lg leading-relaxed">
-                                Industrial-scale pyrolysis for municipalities and large plants. 
+                            <p class="text-gray-400 mb-10 font-elegant text-lg leading-relaxed">
+                                Our flagship industrial reactor. Engineered for municipal waste facilities to convert end-of-life plastics into high-grade oil and syngas.
                             </p>
-                            <a href="#contact" class="inline-block w-full py-4 text-center border-2 border-white/20 hover:bg-white hover:text-charcoal transition-all font-technical uppercase text-sm tracking-widest">
-                                Request Specs & Quote
+                            <a href="#contact" class="block w-full py-5 text-center border-2 border-white/20 hover:bg-white hover:text-[#1a1a1a] transition-all font-technical uppercase text-xs tracking-[0.2em] rounded-xl">
+                                Request Specs & Quotes
                             </a>
                         </div>
                     </div>
                 </div>
             </div>
+
         </div>
     </section>
 
-    <section id="contact" class="py-24 bg-charcoal text-white">
+    <section id="contact" class="py-24 bg-[#1a1a1a] text-white">
         <div class="max-w-4xl mx-auto px-6">
-            <div class="text-center mb-12 animate-fadeInUp">
-                <span class="font-technical text-forest text-sm tracking-widest uppercase">Get In Touch</span>
-                <h2 class="font-technical text-4xl font-bold mt-4">Contact Us</h2>
-                <p class="font-elegant text-gray-400 mt-4">Interested in our products? Let's discuss your needs.</p>
+            <div class="text-center mb-16">
+                <span class="font-technical text-[#228B22] text-xs tracking-widest uppercase">Inquiry</span>
+                <h2 class="font-technical text-4xl font-bold mt-4">Order & Information</h2>
             </div>
 
-            <form id="contact-form" class="space-y-6 animate-fadeInUp stagger-1">
-                <div class="grid md:grid-cols-2 gap-6">
+            <form id="contact-form" class="space-y-6">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <div>
-                        <label class="block font-technical text-sm mb-2">Name</label>
-                        <input type="text" name="name" required class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-forest transition-colors" placeholder="Your name">
+                        <label class="block font-technical text-[10px] uppercase text-gray-500 mb-2">Name</label>
+                        <input type="text" name="name" required class="w-full px-5 py-4 bg-white/5 border border-white/10 rounded-xl text-white focus:border-[#228B22] outline-none transition-all" placeholder="Enter name">
                     </div>
                     <div>
-                        <label class="block font-technical text-sm mb-2">Email</label>
-                        <input type="email" name="email" required class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-forest transition-colors" placeholder="your@email.com">
+                        <label class="block font-technical text-[10px] uppercase text-gray-500 mb-2">Email</label>
+                        <input type="email" name="email" required class="w-full px-5 py-4 bg-white/5 border border-white/10 rounded-xl text-white focus:border-[#228B22] outline-none transition-all" placeholder="your@email.com">
                     </div>
                 </div>
                 <div>
-                    <label class="block font-technical text-sm mb-2">Product Interest</label>
+                    <label class="block font-technical text-[10px] uppercase text-gray-500 mb-2">Product Interest</label>
                     <div class="relative">
-                        <select name="subject" required class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white focus:outline-none focus:border-forest transition-colors appearance-none">
-                            <option value="" disabled selected class="bg-charcoal text-white">Select a product</option>
-                            <option value="Sprout Unit Inquiry" class="bg-charcoal text-white">Sprout Unit (Consumer)</option>
-                            <option value="Titan V4 Inquiry" class="bg-charcoal text-white">Titan V4 (Industrial)</option>
-                            <option value="General Product Inquiry" class="bg-charcoal text-white">General Inquiry</option>
+                        <select name="subject" required class="w-full px-5 py-4 bg-white/5 border border-white/10 rounded-xl text-white focus:border-[#228B22] outline-none appearance-none cursor-pointer">
+                            <option value="" disabled selected>Select a product...</option>
+                            <option value="Sprout Inquiry" class="bg-charcoal">Sprout Home Unit</option>
+                            <option value="Titan Inquiry" class="bg-charcoal">Titan Industrial V4</option>
+                            <option value="Partnership" class="bg-charcoal">Global Partnership</option>
                         </select>
-                        <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-white">
-                            <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
-                        </div>
                     </div>
                 </div>
                 <div>
-                    <label class="block font-technical text-sm mb-2">Message</label>
-                    <textarea name="message" rows="5" required class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-forest transition-colors resize-none" placeholder="Tell us about your needs..."></textarea>
+                    <label class="block font-technical text-[10px] uppercase text-gray-500 mb-2">Message</label>
+                    <textarea name="message" rows="5" required class="w-full px-5 py-4 bg-white/5 border border-white/10 rounded-xl text-white focus:border-[#228B22] outline-none resize-none transition-all" placeholder="How can we help?"></textarea>
                 </div>
                 
-                <div id="form-feedback" class="font-technical text-sm"></div>
+                <div id="form-feedback" class="font-technical text-sm text-center"></div>
 
-                <div class="text-center">
-                    <button type="submit" id="submit-btn" class="bg-forest text-white font-technical font-bold px-12 py-4 hover:bg-green-700 hover:scale-105 transition-all">
-                        Send Message
+                <div class="text-center pt-6">
+                    <button type="submit" id="submit-btn" class="w-full sm:w-auto bg-[#228B22] text-white font-technical font-bold px-16 py-5 rounded-xl hover:bg-green-700 hover:scale-[1.02] active:scale-95 transition-all shadow-xl uppercase tracking-widest text-xs">
+                        Transmit Inquiry
                     </button>
                 </div>
             </form>
         </div>
     </section>
 
-    <footer class="bg-charcoal border-t border-white/10 text-gray-400 py-12 text-center font-technical text-sm">
-        <p>© 2026 Thermowave Dynamics. Engineering a Circular Future.</p>
+    <footer class="bg-[#1a1a1a] border-t border-white/10 py-12 text-center">
+        <p class="text-gray-500 font-technical text-[10px] uppercase tracking-[0.4em]">
+            © 2026 Thermowave Dynamics. Engineering a Circular Future.
+        </p>
     </footer>
 
     <script>
+        // MOBILE MENU LOGIC
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+
+        function toggleMenu() {
+            const isOpen = mobileMenu.classList.toggle('open');
+            if (isOpen) {
+                menuIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>';
+            } else {
+                menuIcon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>';
+            }
+        }
+        menuToggle.addEventListener('click', toggleMenu);
+
+        // FORM LOGIC
         const contactForm = document.getElementById('contact-form');
         const feedbackDiv = document.getElementById('form-feedback');
         const submitBtn = document.getElementById('submit-btn');
 
         contactForm.addEventListener('submit', async (e) => {
             e.preventDefault();
-            
             submitBtn.disabled = true;
-            submitBtn.innerText = 'Sending...';
-            feedbackDiv.innerText = '';
-
+            submitBtn.innerText = 'TRANSMITTING...';
+            
             const formData = new FormData(contactForm);
-
             try {
                 const response = await fetch('https://thermowavedynamics.pythonanywhere.com/api/contact', {
                     method: 'POST',
                     body: formData
                 });
-
                 const result = await response.json();
-
                 if (result.success) {
-                    feedbackDiv.style.color = '#228B22'; // Forest
-                    feedbackDiv.innerText = '✓ Success! Your inquiry has been sent.';
+                    feedbackDiv.className = 'font-technical text-[#228B22] mt-4';
+                    feedbackDiv.innerText = '✓ SUCCESS: INQUIRY SENT';
                     contactForm.reset();
                 } else {
-                    feedbackDiv.style.color = '#C41E3A'; // Crimson
-                    feedbackDiv.innerText = '❌ Error: ' + result.message;
+                    feedbackDiv.className = 'font-technical text-red-500 mt-4';
+                    feedbackDiv.innerText = '❌ ERROR: ' + result.message;
                 }
             } catch (error) {
-                feedbackDiv.style.color = '#C41E3A';
-                feedbackDiv.innerText = '❌ Network error. Please try again later.';
+                feedbackDiv.className = 'font-technical text-red-500 mt-4';
+                feedbackDiv.innerText = '❌ CONNECTION FAILED';
             } finally {
                 submitBtn.disabled = false;
-                submitBtn.innerText = 'Send Message';
+                submitBtn.innerText = 'TRANSMIT INQUIRY';
             }
         });
     </script>
-
 </body>
 </html>
