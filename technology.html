@@ -241,18 +241,11 @@
                             Our microwave pyrolysis technology is backed by extensive peer-reviewed research from leading institutions worldwide. The process uses microwave energy to heat plastic waste in an oxygen-free environment, causing thermal depolymerization that breaks long-chain polymers into valuable lighter hydrocarbons. Unlike conventional pyrolysis, microwave heating provides rapid, volumetric heating with precise temperature control, resulting in higher yields of useful products and minimal unwanted byproducts. Research confirms this approach achieves superior energy efficiency while eliminating harmful emissions typical of conventional plastic recycling methods. Note: These research papers are from independent researchers and academic institutions, not conducted by Thermowave Dynamics.
                         </p>
                         <div class="flex flex-wrap gap-4">
-                            <a href="https://www.sciencedirect.com/science/article/abs/pii/S0959652623002603" target="_blank" class="inline-flex items-center gap-2 bg-forest hover:bg-green-700 text-white font-technical font-bold px-6 py-3 rounded-lg transition-all hover:scale-105 active:scale-95 text-sm">
-                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
-                                Science Direct
-                            </a>
-                            <a href="https://www.sciencedirect.com/science/article/abs/pii/S1385894721010007" target="_blank" class="inline-flex items-center gap-2 bg-crimson hover:bg-red-700 text-white font-technical font-bold px-6 py-3 rounded-lg transition-all hover:scale-105 active:scale-95 text-sm">
-                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
-                                Chemical Engineering
-                            </a>
-<a href="https://www.sciencedirect.com/science/article/pii/S2588913323000200" target="_blank" class="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-technical font-bold px-6 py-3 rounded-lg transition-all hover:scale-105 active:scale-95 text-sm">
-                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
-                                Science Direct
-                            </a>
+                            <!-- Single Research Papers Button -->
+                            <button id="research-btn" class="inline-flex items-center gap-2 bg-forest hover:bg-green-700 text-white font-technical font-bold px-6 py-3 rounded-lg transition-all hover:scale-105 active:scale-95 text-sm">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+                                Research Papers
+                            </button>
                         </div>
                     </div>
                     <div class="lg:w-64 flex-shrink-0 hidden lg:block">
@@ -273,6 +266,70 @@
             </div>
         </div>
     </section>
+
+    <!-- Research Papers Modal -->
+    <div id="research-modal" class="fixed inset-0 z-50 hidden">
+        <!-- Overlay -->
+        <div id="modal-overlay" class="absolute inset-0 bg-black/70 backdrop-blur-sm"></div>
+        <!-- Modal Content -->
+        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full max-w-lg px-4">
+            <div class="bg-charcoal rounded-2xl border border-white/10 shadow-2xl p-6 md:p-8 relative">
+                <!-- Close Button -->
+                <button id="modal-close" class="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+                </button>
+                
+                <!-- Modal Header -->
+                <div class="text-center mb-6">
+                    <span class="font-technical text-forest text-xs tracking-widest uppercase">Scientific Research</span>
+                    <h3 class="font-technical text-xl md:text-2xl font-bold text-white mt-2">Research Papers</h3>
+                    <p class="text-gray-400 text-sm mt-2">Explore our referenced research on microwave pyrolysis technology</p>
+                </div>
+                
+                <!-- Research Links -->
+                <div class="space-y-4">
+                    <a href="https://www.sciencedirect.com/science/article/abs/pii/S0959652623002603" target="_blank" class="block p-4 bg-white/5 rounded-lg border border-white/10 hover:bg-white/10 hover:border-forest/50 transition-all group">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 bg-forest/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                                <svg class="w-5 h-5 text-forest" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                            </div>
+                            <div>
+                                <h4 class="font-technical font-bold text-white group-hover:text-forest transition-colors">Microwave-Assisted Pyrolysis of Plastic Waste</h4>
+                                <p class="text-gray-500 text-xs">Science Direct</p>
+                            </div>
+                            <svg class="w-5 h-5 text-gray-500 ml-auto group-hover:text-forest transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                        </div>
+                    </a>
+                    
+                    <a href="https://link.springer.com/article/10.1007/s13762-023-05352-3" target="_blank" class="block p-4 bg-white/5 rounded-lg border border-white/10 hover:bg-white/10 hover:border-crimson/50 transition-all group">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 bg-crimson/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                                <svg class="w-5 h-5 text-crimson" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                            </div>
+                            <div>
+                                <h4 class="font-technical font-bold text-white group-hover:text-crimson transition-colors">Microwave-Assisted Waste-to-Energy Solutions</h4>
+                                <p class="text-gray-500 text-xs">Springer</p>
+                            </div>
+                            <svg class="w-5 h-5 text-gray-500 ml-auto group-hover:text-crimson transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                        </div>
+                    </a>
+                    
+                    <a href="https://chemistry-europe.onlinelibrary.wiley.com/doi/abs/10.1002/cssc.202400129" target="_blank" class="block p-4 bg-white/5 rounded-lg border border-white/10 hover:bg-white/10 hover:border-blue-500/50 transition-all group">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 bg-blue-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                                <svg class="w-5 h-5 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/></svg>
+                            </div>
+                            <div>
+                                <h4 class="font-technical font-bold text-white group-hover:text-blue-500 transition-colors">Sustainable Chemistry with Microwave Pyrolysis</h4>
+                                <p class="text-gray-500 text-xs">Wiley</p>
+                            </div>
+                            <svg class="w-5 h-5 text-gray-500 ml-auto group-hover:text-blue-500 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <section id="impact" class="py-24 bg-charcoal blueprint-overlay relative overflow-hidden">
         <div class="max-w-7xl mx-auto px-6 relative z-10">
@@ -356,6 +413,37 @@
                 menuIcon.setAttribute('d', 'M4 6h16M4 12h16M4 18h16');
             } else {
                 menuIcon.setAttribute('d', 'M6 18L18 6M6 6l12 12');
+            }
+        });
+
+        // Research Papers Modal Logic
+        const researchBtn = document.getElementById('research-btn');
+        const researchModal = document.getElementById('research-modal');
+        const modalClose = document.getElementById('modal-close');
+        const modalOverlay = document.getElementById('modal-overlay');
+
+        // Open modal
+        researchBtn.addEventListener('click', () => {
+            researchModal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden'; // Prevent scrolling
+        });
+
+        // Close modal function
+        const closeModal = () => {
+            researchModal.classList.add('hidden');
+            document.body.style.overflow = ''; // Restore scrolling
+        };
+
+        // Close on X button click
+        modalClose.addEventListener('click', closeModal);
+
+        // Close on overlay click
+        modalOverlay.addEventListener('click', closeModal);
+
+        // Close on Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && !researchModal.classList.contains('hidden')) {
+                closeModal();
             }
         });
 
